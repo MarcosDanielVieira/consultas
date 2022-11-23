@@ -12,42 +12,49 @@
         </div>
     @endif
 
-    <h1>
-        Especialidade
-    </h1>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Criação</th>
-                <th scope="col">Ação</th>
-            </tr>
-        </thead>
+    <div class="card border-primary mb-3">
+        <h5 class="card-header">
+            Listagem das especialidades
+        </h5>
+        <div class="card-body table-responsive">
 
-        <tbody>
+            <table id="example" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Criação</th>
+                        <th scope="col">Ação</th>
+                    </tr>
+                </thead>
 
-            @foreach ($especialidades as $k => $item)
-                <tr>
+                <tbody>
 
-                    <th scope="row">{{ $k + 1 }}</th>
+                    @foreach ($especialidades as $k => $item)
+                        <tr>
 
-                    <td>
-                        {{ $item->nome }}
-                    </td>
+                            <th scope="row">{{ $k + 1 }}</th>
 
-                    <td>
-                        {{ date('d/m/Y H:i:s', strtotime($item->created_at)) }}
-                    </td>
+                            <td>
+                                {{ $item->nome }}
+                            </td>
 
-                    <td>
-                        <a class="btn btn-outline-success" href="{{ route('especialidade.edit', $item->id) }}">Editar</a>
-                    </td>
-                </tr>
-            @endforeach
+                            <td>
+                                {{ date('d/m/Y H:i:s', strtotime($item->created_at)) }}
+                            </td>
 
-        </tbody>
+                            <td>
+                                <a class="btn btn-outline-success"
+                                    href="{{ route('especialidade.edit', $item->id) }}">Editar</a>
+                            </td>
+                        </tr>
+                    @endforeach
 
-    </table>
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
 
 @endsection
