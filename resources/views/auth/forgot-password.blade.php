@@ -7,29 +7,42 @@
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+            {{ __('Esqueceu sua senha? Sem problemas. Basta nos informar seu endereço de e-mail e enviaremos um e-mail com um link de redefinição de senha que permitirá que você escolha um novo.') }}
         </div>
 
         <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+        <x-auth-session-status class="mb-2" :status="session('status')" />
 
         <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+        <x-auth-validation-errors class="mb-2" :errors="$errors" />
 
         <form method="POST" action="{{ route('password.email') }}">
             @csrf
 
             <!-- Email Address -->
             <div>
-                <x-label for="email" :value="__('Email')" />
+                <x-label for="email" :value="__('E-mail')" />
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-input id="email" class="block mt-1 w-full" placeholder="E-mail" type="email" name="email"
+                    :value="old('email')" required autofocus />
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-button>
+            <div class="flex items-center justify-center">
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        @if (Route::has('register'))
+                            <a href="{{ route('login') }}" class="btn btn-block btn-outline-secondary mt-2">
+                                Voltar
+                            </a>
+                        @endif
+                    </div>
+
+                    <div class="col-md-6">
+                        <button class="btn btn-block btn-outline-success mt-2" type="submit">
+                            Redefinir
+                        </button>
+                    </div>
+                </div>
             </div>
         </form>
     </x-auth-card>
