@@ -19,9 +19,10 @@
         <div class="card-body table-responsive">
 
             <table id="example" class="table table-striped table-bordered">
+
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
+                        <th scope="col" class="text-center">ID</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Criação</th>
                         <th scope="col">Ação</th>
@@ -33,7 +34,7 @@
                     @foreach ($especialidades as $k => $item)
                         <tr>
 
-                            <th scope="row">{{ $k + 1 }}</th>
+                            <th class="text-center">{{ $k + 1 }}</th>
 
                             <td>
                                 {{ $item->nome }}

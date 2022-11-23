@@ -8,12 +8,11 @@
     </div>
 @endif
 
-<div class="card border-primary mb-3">
+<div class="card border-primary mb-3 rounded">
     <h5 class="card-header">
         {{ isset($titulo_card) ? $titulo_card : '' }}
     </h5>
     <div class="card-body">
-
 
         @csrf
 
@@ -26,17 +25,8 @@
                     Campo não pode ficar vazio!
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-6">
-                <a href="{{ route('especialidade.index') }}" class="btn btn-block btn-secondary">
-                    Voltar
-                </a>
-            </div>
-            <div class="col-md-6">
-                <button class="btn btn-block btn-primary" type="submit">Enviar</button>
-            </div>
+            <button class="btn btn-block btn-primary" type="submit">Enviar informações</button>
         </div>
 
     </div>

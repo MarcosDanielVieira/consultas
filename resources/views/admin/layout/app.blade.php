@@ -10,33 +10,150 @@
         @yield('title') - {{ config('app.name') }}
     </title>
 
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-icons.css') }}">
+
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 </head>
 
-<body class="bg-gray-50">
+<body>
 
-    <div class="container mx-auto py-8">
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
 
-        @yield('content')
+        <div class="d-flex align-items-center justify-content-between">
+            <a href="#" class="logo d-flex align-items-center">
+                <img src="{{ asset('img/agenda.svg') }}">
+                <span class="d-none d-lg-block">
+                    {{ config('app.name') }}
+                </span>
+            </a>
+            <i class="bi bi-list toggle-sidebar-btn"></i>
+        </div><!-- End Logo -->
 
-    </div>
+        <nav class="header-nav ms-auto">
+            <ul class="d-flex align-items-center">
+
+                <li class="nav-item dropdown pe-3">
+
+                    <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
+                        data-bs-toggle="dropdown">
+                        <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                    </a><!-- End Profile Iamge Icon -->
+
+                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                        <li class="dropdown-header">
+                            <h6>Kevin Anderson</h6>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-outline-danger btn-block">
+                                        <i class="bi bi-box-arrow-right"></i>
+                                        <span>Sair do sistema</span>
+                                    </button>
+                                </form>
+                            </a>
+                        </li>
+
+                    </ul><!-- End Profile Dropdown Items -->
+                </li><!-- End Profile Nav -->
+
+            </ul>
+        </nav><!-- End Icons Navigation -->
+
+    </header><!-- End Header -->
+
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+
+        <ul class="sidebar-nav" id="sidebar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i>
+                    <span>Especialidades</span>
+                    <i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="components-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+
+                    <li>
+                        <a href="{{ route('especialidade.index') }}">
+                            <i class="bi bi-circle"></i>
+                            <span>Listagem</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('especialidade.create') }}">
+                            <i class="bi bi-circle"></i>
+                            <span>Criar</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li><!-- End Components Nav -->
+
+            <li class="nav-item">
+
+                <form method="POST" id="sair" action="{{ route('logout') }}">
+                    @csrf
+                    <a class="nav-link text-danger" href="javascript:$('#sair').submit()">
+                        <i class="bi bi-box-arrow-right text-danger"></i>
+                        <span>Sair do sistema</span>
+                    </a>
+                </form>
+
+            </li>
+
+        </ul>
+
+    </aside><!-- End Sidebar-->
+
+    <main id="main" class="main">
+
+        <section class="section dashboard">
+
+            @yield('content')
+
+        </section>
+
+    </main>
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up-short"></i>
+    </a>
 
 </body>
 
 <!-- Scripts -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
-    integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
 </script>
 <script src="{{ asset('js/main.js') }}"></script>
 
@@ -59,7 +176,7 @@
         },
         paging: true,
         lengthChange: false,
-        pageLength: 50,
+        pageLength: 26,
         searching: true,
         ordering: true,
         info: true,
