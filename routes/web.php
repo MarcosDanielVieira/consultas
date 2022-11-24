@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\{
-    PostController
+    ConsultasController,
+    EspecialidadeController,
+    MedicoController
 };
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
@@ -19,28 +21,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(["auth"])->group(function () {
 
-    Route::any("/posts/search", [PostController::class, 'search'])->name("posts.search");
+    Route::get("/consulta", [ConsultasController::class, 'index'])->name("consultas.index");
 
-    Route::get("/posts/create", [PostController::class, 'create'])->name("post.create");
-    Route::get("/posts", [PostController::class, 'index'])->name("post.index");
+    Route::get("/especialidade/create", [EspecialidadeController::class, 'create'])->name("especialidade.create");
+    Route::post("/store", [EspecialidadeController::class, 'store'])->name("especialidade.store");
+    Route::get("/especialidade/index", [EspecialidadeController::class, 'index'])->name("especialidade.index");
+    Route::get("/especialidade/edit/{id}", [EspecialidadeController::class, 'edit'])->name("especialidade.edit");
+    Route::put("/especialidade/{id}", [EspecialidadeController::class, 'update'])->name("especialidade.update");
 
-    Route::get("/posts/{id}", [PostController::class, 'show'])->name("post.show");
-    Route::get("/posts/edit/{id}", [PostController::class, 'edit'])->name("post.edit");
-
-    Route::put("/posts/{id}", [PostController::class, 'update'])->name("post.update");
-
-    Route::delete("/posts/{id}", [PostController::class, 'delete'])->name("post.delete");
-
-    Route::post("/store", [PostController::class, 'store'])->name("posts.store");
-
-
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get("/medico/index", [MedicoController::class, 'index'])->name("medico.index");
+    Route::get("/medico/create", [MedicoController::class, 'create'])->name("medico.create");
+    Route::post("/medico/store", [MedicoController::class, 'store'])->name("medico.store");
+    Route::get("/medico/edit/{id}", [MedicoController::class, 'edit'])->name("medico.edit");
+    Route::put("/medico/{id}", [MedicoController::class, 'update'])->name("medico.update");
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 require __DIR__ . '/auth.php';

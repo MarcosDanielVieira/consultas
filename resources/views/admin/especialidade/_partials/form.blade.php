@@ -18,7 +18,10 @@
 
         <div class="form-row">
             <div class="col-md-12 mb-3">
-                <label for="nome">Nome da especialidade</label>
+                <label for="nome">
+                    Nome da especialidade
+                    <span class="text-danger">*</span>
+                </label>
                 <input type="text" minlength="3" placeholder="Nome da especialidade" class="form-control"
                     value="{{ $especialidade->nome ?? old('nome') }}" name="nome" id="nome" required>
                 <div class="invalid-feedback">

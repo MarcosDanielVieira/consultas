@@ -39,7 +39,7 @@ class EspecialidadeController extends Controller
      */
     public function index()
     {
-        $especialidades = Especialidade::all();
+        $especialidades = Especialidade::orderBy("nome", "ASC")->get();
 
         return view("admin.especialidade.index", compact("especialidades"));
     }

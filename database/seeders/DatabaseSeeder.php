@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
+
     /**
      * Seed the application's database.
      *
@@ -17,13 +18,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        // \App\Models\Especialidade::factory(50)->create();
+        \App\Models\Medico::factory(10)->create();
 
-        DB::table('users')->insert([
-            'name'          => "Marcos Daniel",
-            'email'         => "marcosdaniel.developer@hotmail.com",
-            'created_at'    => date("Y-m-d H:i:s"),
-            'updated_at'    => date("Y-m-d H:i:s"),
-            'password'      => '$2a$12$bZPjvK2ne.jJHy8Al9EJgeIz/pY.cekq1Gh.SJivAoFfBNItcNrcG' //Hash::make('password'),
-        ]);
+        // DB::table('users')->insert([
+        //     'name'          => "Marcos Daniel",
+        //     'email'         => "marcosdaniel.developer@hotmail.com",
+        //     'created_at'    => date("Y-m-d H:i:s"),
+        //     'updated_at'    => date("Y-m-d H:i:s"),
+        //     'password'      => '$2a$12$bZPjvK2ne.jJHy8Al9EJgeIz/pY.cekq1Gh.SJivAoFfBNItcNrcG' //Hash::make('password'),
+        // ]);
     }
 }

@@ -90,12 +90,12 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                <a class="nav-link collapsed" data-bs-target="#especialidade" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-menu-button-wide"></i>
                     <span>Especialidades</span>
                     <i class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="components-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                <ul id="especialidade" class="nav-content collapse" data-bs-parent="#sidebar-nav">
 
                     <li>
                         <a href="{{ route('especialidade.index') }}">
@@ -106,6 +106,31 @@
 
                     <li>
                         <a href="{{ route('especialidade.create') }}">
+                            <i class="bi bi-circle"></i>
+                            <span>Criar</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li><!-- End Components Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#medico" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-heart"></i>
+                    <span>Medicos</span>
+                    <i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="medico" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+
+                    <li>
+                        <a href="{{ route('medico.index') }}">
+                            <i class="bi bi-circle"></i>
+                            <span>Listagem</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('medico.create') }}">
                             <i class="bi bi-circle"></i>
                             <span>Criar</span>
                         </a>

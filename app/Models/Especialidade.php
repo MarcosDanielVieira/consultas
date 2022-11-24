@@ -11,4 +11,9 @@ class Especialidade extends Model
 
   protected $table        = 'especialidades';
   protected $fillable     = ['nome'];
+
+  public function medicos()
+  {
+    return $this->hasMany(Medico::class, 'especialidade_id', 'id');
+  }
 }

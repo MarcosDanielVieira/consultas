@@ -9,13 +9,6 @@ class EspecialidadeFactory extends Factory
 {
 
     /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
-    protected $model = Especialidade::class;
-
-    /**
      * Get a new Faker instance.
      *
      * @return \Faker\Generator
@@ -24,6 +17,13 @@ class EspecialidadeFactory extends Factory
     {
         return \Faker\Factory::create(app()->getLocale());
     }
+
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Especialidade::class;
 
     /**
      * Define the model's default state.
