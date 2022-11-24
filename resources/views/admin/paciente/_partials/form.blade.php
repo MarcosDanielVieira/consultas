@@ -66,6 +66,19 @@
                 </div>
             </div>
 
+            <div class="col-md-3 mb-3">
+                <label for="nascimento">
+                    Nascimento
+                    <span class="text-danger">*</span>
+                </label>
+                <input type="date" max="<?= date('Y-m-d') ?>" min="<?= date('Y-m-d', strtotime('-100 year')) ?>"
+                    class="form-control" value="{{ $paciente->nascimento ?? old('nascimento') }}" name="nascimento"
+                    id="nascimento" required>
+                <div class="invalid-feedback">
+                    Campo não pode ficar vazio!
+                </div>
+            </div>
+
             <div class="col-md-2 mb-3">
                 <label for="cep">
                     CEP
@@ -78,7 +91,7 @@
                 </div>
             </div>
 
-            <div class="col-md-5 mb-3">
+            <div class="col-md-4 mb-3">
                 <label for="cidade">
                     Cidade
                     <span class="text-danger">*</span>
@@ -126,6 +139,35 @@
                 </div>
             </div>
 
+        </div>
+
+        <div class="row divResponsavel" style="display: none">
+
+            <div class="col-md-5 mb-3">
+                <label for="nome_responsavel">
+                    Nome do responsável
+                    <span class="text-danger">*</span>
+                </label>
+                <input type="text" minlength="3" maxlength="160" placeholder="Nome do responsável"
+                    class="form-control" value="{{ $paciente->nome_responsavel ?? old('nome_responsavel') }}"
+                    name="nome_responsavel" id="nome_responsavel">
+                <div class="invalid-feedback">
+                    Campo não pode ficar vazio!
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="cpf_responsavel">
+                    CPF do responsável
+                    <span class="text-danger">*</span>
+                </label>
+                <input type="text" minlength="3" maxlength="14" placeholder="CPF do responsável"
+                    class="form-control cpf" value="{{ $paciente->cpf_responsavel ?? old('cpf_responsavel') }}"
+                    name="cpf_responsavel" id="cpf_responsavel">
+                <div class="invalid-feedback">
+                    Campo não pode ficar vazio!
+                </div>
+            </div>
         </div>
         <button class="btn btn-primary" type="submit">Enviar informações</button>
 

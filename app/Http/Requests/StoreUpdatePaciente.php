@@ -24,14 +24,15 @@ class StoreUpdatePaciente extends FormRequest
    */
   public function rules()
   {
-    $rules        = [
-      "nome"      => "required|min:3|max:160",
-      "email"     => ["required", "min:3", "max:30", "email", Rule::unique('pacientes')->ignore($this->id)],
-      "cpf"       => ["required", "min:11", "max:14", Rule::unique('pacientes')->ignore($this->id)],
-      "cep"       => "required|min:8|max:9",
-      "endereco"  => "required|min:3|max:160",
-      "numero"    => "required|min:1|max:9",
-      "uf"        => "required|min:2|max:4",
+    $rules                = [
+      "nome"              => "required|min:3|max:160",
+      "email"             => ["required", "min:3", "max:30", "email", Rule::unique('pacientes')->ignore($this->id)],
+      "cpf"               => ["required", "min:11", "max:14", Rule::unique('pacientes')->ignore($this->id)],
+      "cep"               => "required|min:8|max:9",
+      "endereco"          => "required|min:3|max:160",
+      "numero"            => "required|min:1|max:9",
+      "uf"                => "required|min:2|max:4",
+      "nascimento"        => "required|date_format:Y-m-d",
     ];
 
     return $rules;

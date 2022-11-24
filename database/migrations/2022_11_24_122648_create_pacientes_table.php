@@ -24,6 +24,9 @@ class CreatePacientesTable extends Migration
             $table->string("uf", 4);
             $table->string("cidade", 160);
             $table->string("telefone", 15);
+            $table->date('nascimento')->nullable();
+            $table->string("cpf_responsavel", 14)->unique()->nullable();
+            $table->string("nome_responsavel", 160)->nullable();
             $table->timestamps();
         });
     }

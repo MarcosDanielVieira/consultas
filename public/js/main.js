@@ -238,4 +238,24 @@ $(document).ready(function () {
       limpa_formulário_cep();
     }
   });
+
+  $("#nascimento").on("blur", function () {
+    hoje = new Date();
+
+    dataInformada = new Date($(this).val());
+
+    diferenca = hoje.getFullYear() - dataInformada.getFullYear();
+
+    if (diferenca <= 18) {
+      $(".divResponsavel").show();
+      $("#nome_responsavel").attr("required", "required");
+      $("#cpf_responsavel").attr("required", "required");
+
+    } else {
+      $("#nome_responsavel").removeAttr("required");
+      $("#cpf_responsavel").removeAttr("required");
+      $(".divResponsavel").hide();
+    }
+
+  });
 });
