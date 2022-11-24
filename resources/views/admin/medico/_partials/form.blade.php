@@ -22,14 +22,14 @@
                     Nome do médico
                     <span class="text-danger">*</span>
                 </label>
-                <input type="text" minlength="3" placeholder="Nome da médico" class="form-control"
+                <input type="text" minlength="3" placeholder="Nome do médico" class="form-control"
                     value="{{ $medico->nome ?? old('nome') }}" name="nome" id="nome" required>
                 <div class="invalid-feedback">
                     Campo não pode ficar vazio!
                 </div>
             </div>
 
-            <div class="col-md-{{ isset($crm) ? '6' : '4' }} mb-3">
+            <div class="col-md-4 mb-3">
                 <label for="nome">
                     Especialidade
                     <span class="text-danger">*</span>

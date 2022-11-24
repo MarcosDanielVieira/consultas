@@ -3,7 +3,8 @@
 use App\Http\Controllers\{
     ConsultasController,
     EspecialidadeController,
-    MedicoController
+    MedicoController,
+    PacienteController
 };
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,12 @@ Route::middleware(["auth"])->group(function () {
     Route::post("/medico/store", [MedicoController::class, 'store'])->name("medico.store");
     Route::get("/medico/edit/{id}", [MedicoController::class, 'edit'])->name("medico.edit");
     Route::put("/medico/{id}", [MedicoController::class, 'update'])->name("medico.update");
+
+    Route::get("/paciente/index", [PacienteController::class, 'index'])->name("paciente.index");
+    Route::get("/paciente/create", [PacienteController::class, 'create'])->name("paciente.create");
+    Route::post("/paciente/store", [PacienteController::class, 'store'])->name("paciente.store");
+    Route::get("/paciente/edit/{id}", [PacienteController::class, 'edit'])->name("paciente.edit");
+    Route::put("/paciente/{id}", [PacienteController::class, 'update'])->name("paciente.update");
 });
 
 Route::get('/', function () {

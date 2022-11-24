@@ -120,7 +120,7 @@
             </li><!-- End Components Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#medico" data-bs-toggle="collapse" href="#">
+                <a class="nav-link" data-bs-target="#medico" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-heart"></i>
                     <span>Medicos</span>
                     <i class="bi bi-chevron-down ms-auto"></i>
@@ -136,6 +136,31 @@
 
                     <li>
                         <a href="{{ route('medico.create') }}">
+                            <i class="bi bi-circle"></i>
+                            <span>Criar</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li><!-- End Components Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#paciente" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-people"></i>
+                    <span>Pacientes</span>
+                    <i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="paciente" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+
+                    <li>
+                        <a href="{{ route('paciente.index') }}">
+                            <i class="bi bi-circle"></i>
+                            <span>Listagem</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('paciente.create') }}">
                             <i class="bi bi-circle"></i>
                             <span>Criar</span>
                         </a>
@@ -185,6 +210,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
     integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous">
 </script>
+
+<script src="{{ asset('js/jquery.mask.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
 
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
