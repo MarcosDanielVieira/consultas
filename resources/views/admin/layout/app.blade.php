@@ -89,7 +89,7 @@
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#consulta" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-menu-button-wide"></i>
+                    <i class="bi bi-calendar4-week"></i>
                     <span>Consultas</span>
                     <i class="bi bi-chevron-down ms-auto"></i>
                 </a>
