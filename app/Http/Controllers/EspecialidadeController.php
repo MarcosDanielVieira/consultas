@@ -53,6 +53,10 @@ class EspecialidadeController extends Controller
             return redirect()->back();
         }
 
+        if ($id == 1)
+            return redirect()->back();
+
+
         return view("admin.especialidade.edit", compact("especialidade"));
     }
 

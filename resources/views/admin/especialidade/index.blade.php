@@ -6,9 +6,6 @@
     @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
         </div>
     @endif
 
@@ -25,14 +22,14 @@
                         <th scope="col" class="text-center">ID</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Criação</th>
-                        <th scope="col">Ação</th>
+                        <th scope="col" class="text-center">Ação</th>
                     </tr>
                 </thead>
 
                 <tbody>
 
                     @foreach ($especialidades as $k => $item)
-                        <tr>
+                        <tr <?= $item->id == 1 ? 'style="pointer-events: none"' : '' ?>>
 
                             <th class="text-center">{{ $k + 1 }}</th>
 
@@ -44,9 +41,9 @@
                                 {{ date('d/m/Y H:i:s', strtotime($item->created_at)) }}
                             </td>
 
-                            <td>
-                                <a class="btn btn-outline-success"
-                                    href="{{ route('especialidade.edit', $item->id) }}">Editar</a>
+                            <td class="text-center">
+                                <a class="btn btn-outline-success" <?= $item->id == 1 ? 'disabled' : '' ?>
+                                    href="{{ route('especialidade.edit', $item->id) }}" s>Editar</a>
                             </td>
                         </tr>
                     @endforeach

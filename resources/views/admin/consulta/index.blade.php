@@ -24,7 +24,7 @@
                         <th scope="col">Paciente</th>
                         <th scope="col">Data e horário da consulta</th>
                         <th scope="col">Criação</th>
-                        <th scope="col">Ação</th>
+                        <th scope="col" class="text-center">Ação</th>
                     </tr>
                 </thead>
 
@@ -51,7 +51,7 @@
                                 {{ date('d/m/Y H:i:s', strtotime($item->created_at)) }}
                             </td>
 
-                            <td>
+                            <td class="text-center">
                                 <a class="btn btn-outline-success" href="{{ route('medico.edit', $item->id) }}">Editar</a>
                             </td>
                         </tr>
