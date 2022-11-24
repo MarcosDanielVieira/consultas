@@ -5,7 +5,7 @@
 Desenvolver um sistema de marcação de consultas. Devemos ter o cadastro das especialidades, dos médicos e dos pacientes. Após, precisamos criar uma consulta associando o paciente ao médico.
 
 <p align="center">
-   <img src="https://github.com/MarcosDanielVieira/consultas/blob/main/public/img/agenda.svg" width="400"> AngendEasy
+   <img src="https://github.com/MarcosDanielVieira/consultas/blob/main/public/img/agenda.svg" width="100"> AngendEasy
 </p>
 
 # Rodar projeto
