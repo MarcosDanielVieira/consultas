@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\{
+    ConsultaController,
     ConsultasController,
     EspecialidadeController,
     MedicoController,
@@ -41,6 +42,10 @@ Route::middleware(["auth"])->group(function () {
     Route::post("/paciente/store", [PacienteController::class, 'store'])->name("paciente.store");
     Route::get("/paciente/edit/{id}", [PacienteController::class, 'edit'])->name("paciente.edit");
     Route::put("/paciente/{id}", [PacienteController::class, 'update'])->name("paciente.update");
+
+    Route::get("/consulta/index", [ConsultaController::class, 'index'])->name("consulta.index");
+    Route::get("/consulta/create", [ConsultaController::class, 'create'])->name("consulta.create");
+    Route::post("/consulta/store", [ConsultaController::class, 'store'])->name("consulta.store");
 });
 
 Route::get('/', function () {

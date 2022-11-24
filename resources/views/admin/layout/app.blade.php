@@ -88,11 +88,29 @@
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="bi bi-grid"></i>
-                    <span>Dashboard</span>
+                <a class="nav-link collapsed" data-bs-target="#consulta" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i>
+                    <span>Consultas</span>
+                    <i class="bi bi-chevron-down ms-auto"></i>
                 </a>
-            </li>
+                <ul id="consulta" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+
+                    <li>
+                        <a href="{{ route('consulta.index') }}">
+                            <i class="bi bi-circle"></i>
+                            <span>Listagem</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('consulta.create') }}">
+                            <i class="bi bi-circle"></i>
+                            <span>Criar</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li><!-- End Components Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#especialidade" data-bs-toggle="collapse" href="#">
@@ -120,7 +138,7 @@
             </li><!-- End Components Nav -->
 
             <li class="nav-item">
-                <a class="nav-link" data-bs-target="#medico" data-bs-toggle="collapse" href="#">
+                <a class="nav-link collapsed" data-bs-target="#medico" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-heart"></i>
                     <span>Medicos</span>
                     <i class="bi bi-chevron-down ms-auto"></i>

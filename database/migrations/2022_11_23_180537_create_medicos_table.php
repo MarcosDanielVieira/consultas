@@ -20,7 +20,7 @@ class CreateMedicosTable extends Migration
             $table->string("nome", "160")->unique();
             $table->string("crm", 20)->unique();
             $table->bigInteger('especialidade_id')->unsigned()->index()->nullable();
-            $table->foreign('especialidade_id')->references('id')->on('especialidades')->onDelete('cascade');
+            $table->foreign('especialidade_id')->references('id')->on('especialidades')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
