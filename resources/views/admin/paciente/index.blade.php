@@ -22,6 +22,9 @@
                         <th scope="col" class="text-center">ID</th>
                         <th scope="col">Nome</th>
                         <th scope="col">CPF</th>
+                        <th scope="col">Endereço</th>
+                        <th scope="col">Número</th>
+                        <th scope="col">UF</th>
                         <th scope="col">Criação</th>
                         <th scope="col">Ação</th>
                     </tr>
@@ -40,6 +43,18 @@
 
                             <td>
                                 {{ $item->cpf }}
+                            </td>
+
+                            <td>
+                                {{ $item->endereco }}
+                            </td>
+
+                            <td class="text-center">
+                                {{ $item->numero }}
+                            </td>
+
+                            <td>
+                                {{ $item->uf }}
                             </td>
 
                             <td>

@@ -1,5 +1,5 @@
 @extends('admin.layout.app')
-@section('title', 'Listagem médicos')
+@section('title', 'Listagem dos médicos')
 
 @section('content')
 

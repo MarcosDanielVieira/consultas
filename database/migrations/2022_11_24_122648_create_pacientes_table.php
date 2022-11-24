@@ -22,6 +22,8 @@ class CreatePacientesTable extends Migration
             $table->string("endereco", 160);
             $table->string("numero", 9);
             $table->string("uf", 4);
+            $table->string("cidade", 160);
+            $table->string("telefone", 15);
             $table->timestamps();
         });
     }

@@ -55,12 +55,60 @@
             </div>
 
             <div class="col-md-3 mb-3">
+                <label for="telefone">
+                    Telefone
+                    <span class="text-danger">*</span>
+                </label>
+                <input type="text" minlength="11" maxlength="15" placeholder="Telefone" class="form-control telefone"
+                    value="{{ $paciente->telefone ?? old('telefone') }}" name="telefone" id="telefone" required>
+                <div class="invalid-feedback">
+                    Campo não pode ficar vazio!
+                </div>
+            </div>
+
+            <div class="col-md-2 mb-3">
                 <label for="cep">
                     CEP
                     <span class="text-danger">*</span>
                 </label>
                 <input type="text" minlength="9" maxlength="9" placeholder="CEP" class="form-control cep"
                     value="{{ $paciente->cep ?? old('cep') }}" name="cep" id="cep" required>
+                <div class="invalid-feedback">
+                    Campo não pode ficar vazio!
+                </div>
+            </div>
+
+            <div class="col-md-5 mb-3">
+                <label for="cidade">
+                    Cidade
+                    <span class="text-danger">*</span>
+                </label>
+                <input type="text" minlength="2" maxlength="4" placeholder="Cidade" class="form-control"
+                    value="{{ $paciente->cidade ?? old('cidade') }}" name="cidade" id="cidade" required>
+                <div class="invalid-feedback">
+                    Campo não pode ficar vazio!
+                </div>
+            </div>
+
+            <div class="col-md-2 mb-3">
+                <label for="uf">
+                    UF
+                    <span class="text-danger">*</span>
+                </label>
+                <input type="text" minlength="2" maxlength="4" placeholder="UF" class="form-control"
+                    value="{{ $paciente->uf ?? old('uf') }}" name="uf" id="uf" required>
+                <div class="invalid-feedback">
+                    Campo não pode ficar vazio!
+                </div>
+            </div>
+
+            <div class="col-md-5 mb-3">
+                <label for="endereco">
+                    Endereço
+                    <span class="text-danger">*</span>
+                </label>
+                <input type="text" minlength="3" maxlength="160" placeholder="Endereço" class="form-control"
+                    value="{{ $paciente->endereco ?? old('endereco') }}" name="endereco" id="endereco" required>
                 <div class="invalid-feedback">
                     Campo não pode ficar vazio!
                 </div>
@@ -73,30 +121,6 @@
                 </label>
                 <input type="text" minlength="1" maxlength="9" placeholder="Número" class="form-control"
                     value="{{ $paciente->numero ?? old('numero') }}" name="numero" id="numero" required>
-                <div class="invalid-feedback">
-                    Campo não pode ficar vazio!
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-3">
-                <label for="endereco">
-                    Endereço
-                    <span class="text-danger">*</span>
-                </label>
-                <input type="text" minlength="3" maxlength="160" placeholder="Endereço" class="form-control"
-                    value="{{ $paciente->endereco ?? old('endereco') }}" name="endereco" id="endereco" required>
-                <div class="invalid-feedback">
-                    Campo não pode ficar vazio!
-                </div>
-            </div>
-
-            <div class="col-md-3 mb-3">
-                <label for="uf">
-                    UF
-                    <span class="text-danger">*</span>
-                </label>
-                <input type="text" minlength="2" maxlength="4" placeholder="UF" class="form-control"
-                    value="{{ $paciente->uf ?? old('uf') }}" name="uf" id="uf" required>
                 <div class="invalid-feedback">
                     Campo não pode ficar vazio!
                 </div>

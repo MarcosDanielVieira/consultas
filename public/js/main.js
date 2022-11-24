@@ -185,7 +185,10 @@ $(document).ready(function () {
   function limpa_formulário_cep() {
     // Limpa valores do formulário de cep.
     $("#endereco").val("");
-    $("#estado_id").val("");
+    $("#cidade").val("");
+    $("#cidade").removeAttr("readonly");
+    $("#uf").val("");
+    $("#uf").removeAttr("readonly");
   }
 
   //Quando o campo cep perde o foco.
@@ -211,8 +214,10 @@ $(document).ready(function () {
             if (!("erro" in dados)) {
               //Atualiza os campos com os valores da consulta.
               $("#endereco").val(dados.logradouro);
-              $('.sigla_' + dados.uf).attr('selected', 'selected');
-
+              $("#uf").val(dados.uf);
+              $("#cidade").val(dados.localidade);
+              $("#uf").attr("readonly", "readonly");
+              $("#cidade").attr("readonly", "readonly");
             } //end if.
             else {
               //CEP pesquisado não foi encontrado.

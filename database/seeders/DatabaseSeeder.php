@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory(25)->create();
         \App\Models\Especialidade::factory(25)->create();
         \App\Models\Medico::factory(25)->create();
+        \App\Models\Paciente::factory(25)->create();
 
         DB::table('users')->insert([
             'name'          => "Marcos Daniel",
