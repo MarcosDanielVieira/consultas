@@ -65,16 +65,30 @@ class MedicoController extends Controller
      */
     public function update(StoreUpdateMedico $request, $id)
     {
-        if (!$post  = Medico::find($id)) {
+        if (!$medico  = Medico::find($id)) {
             return redirect()->back();
         }
 
         $dados      = $request->all();
 
-        $post->update($dados);
+        $medico->update($dados);
 
         return redirect()
             ->route("medico.index")
             ->with("success", "Atualizado com sucesso!");
+    }
+
+    /**
+     * Função para deletar item
+     */
+    public function delete($id)
+    {
+        if (!$medico = Medico::find($id))
+            return redirect()->route("medico.index");
+
+        $medico->delete();
+        return redirect()
+            ->route("medico.index")
+            ->with("success", "Deletado com sucesso!");
     }
 }

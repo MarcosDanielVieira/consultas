@@ -27,7 +27,8 @@
                     <option value="">Selecione</option>
                     @foreach ($medicos as $item)
                         <option data-especialidade="{{ $item->especialidade->id }}"
-                            {{ $consulta->medico_id == $item->id ? 'selected' : '' }} value="{{ $item->id }}">
+                            {{ isset($consulta) && $consulta->medico_id == $item->id ? 'selected' : '' }}
+                            value="{{ $item->id }}">
                             {{ $item->nome . ' - ' . $item->especialidade->nome }}
                         </option>
                     @endforeach
@@ -45,7 +46,8 @@
                 <select class="form-select" id="especialidade" name="paciente_id" required>
                     <option value="">Selecione</option>
                     @foreach ($pacientes as $item)
-                        <option {{ $consulta->paciente_id == $item->id ? 'selected' : '' }} value="{{ $item->id }}">
+                        <option {{ isset($consulta) && $consulta->paciente_id == $item->id ? 'selected' : '' }}
+                            value="{{ $item->id }}">
                             {{ $item->nome }}
                         </option>
                     @endforeach

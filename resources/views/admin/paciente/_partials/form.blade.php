@@ -141,7 +141,8 @@
 
         </div>
 
-        <div class="row divResponsavel" style="display: none">
+        <div class="row divResponsavel"
+            <?= isset($paciente) && !empty($paciente->nome_responsavel) ? '' : 'style="display: none"' ?>>
 
             <div class="col-md-5 mb-3">
                 <label for="nome_responsavel">

@@ -42,8 +42,21 @@
                             </td>
 
                             <td class="text-center">
-                                <a class="btn btn-outline-success" <?= $item->id == 1 ? 'disabled' : '' ?>
-                                    href="{{ route('especialidade.edit', $item->id) }}" s>Editar</a>
+
+                                <a class="btn btn-sm m-1 btn-outline-success"
+                                    title="Editar"<?= $item->id == 1 ? 'disabled' : '' ?>
+                                    href="{{ route('especialidade.edit', $item->id) }}">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+
+                                <form action="{{ route('especialidade.delete', $item->id) }}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button class="btn btn-sm m-1 btn-outline-danger" title="Excluir" type="submit"
+                                        <?= $item->id == 1 ? 'disabled' : '' ?>>
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

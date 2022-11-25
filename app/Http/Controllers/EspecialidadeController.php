@@ -56,7 +56,6 @@ class EspecialidadeController extends Controller
         if ($id == 1)
             return redirect()->back();
 
-
         return view("admin.especialidade.edit", compact("especialidade"));
     }
 
@@ -76,5 +75,22 @@ class EspecialidadeController extends Controller
         return redirect()
             ->route("especialidade.index")
             ->with("success", "Atualizado com sucesso!");
+    }
+
+    /**
+     * Função para deletar item
+     */
+    public function delete($id)
+    {
+        if (!$especialidade = Especialidade::find($id))
+            return redirect()->route("especialidade.index");
+
+        if ($id == 1)
+            return redirect()->back();
+
+        $especialidade->delete();
+        return redirect()
+            ->route("especialidade.index")
+            ->with("success", "Deletado com sucesso!");
     }
 }

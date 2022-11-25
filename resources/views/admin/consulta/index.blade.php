@@ -52,7 +52,20 @@
                             </td>
 
                             <td class="text-center">
-                                <a class="btn btn-outline-success" href="{{ route('consulta.edit', $item->id) }}">Editar</a>
+
+                                <a class="btn btn-sm m-1 btn-outline-success" title="Editar"
+                                    href="{{ route('consulta.edit', $item->id) }}">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+
+                                <form action="{{ route('consulta.delete', $item->id) }}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <button class="btn btn-sm m-1 btn-outline-danger" title="Excluir" type="submit">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
+
                             </td>
                         </tr>
                     @endforeach

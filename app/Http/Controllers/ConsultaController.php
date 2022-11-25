@@ -82,4 +82,18 @@ class ConsultaController extends Controller
             ->route("consulta.index")
             ->with("success", "Atualizado com sucesso!");
     }
+
+    /**
+     * Função para deletar item
+     */
+    public function delete($id)
+    {
+        if (!$consulta = Consulta::find($id))
+            return redirect()->route("consulta.index");
+
+        $consulta->delete();
+        return redirect()
+            ->route("consulta.index")
+            ->with("success", "Deletado com sucesso!");
+    }
 }

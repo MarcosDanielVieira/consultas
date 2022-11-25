@@ -75,4 +75,18 @@ class PacienteController extends Controller
             ->route("paciente.index")
             ->with("success", "Atualizado com sucesso!");
     }
+
+    /**
+     * Função para deletar item
+     */
+    public function delete($id)
+    {
+        if (!$paciente = Paciente::find($id))
+            return redirect()->route("paciente.index");
+
+        $paciente->delete();
+        return redirect()
+            ->route("paciente.index")
+            ->with("success", "Deletado com sucesso!");
+    }
 }
