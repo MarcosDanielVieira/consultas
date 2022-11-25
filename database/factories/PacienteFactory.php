@@ -23,7 +23,7 @@ class PacienteFactory extends Factory
             'numero'    => $this->faker->year,
             'uf'        => "MG",
             'cidade'    => $this->faker->city,
-            'telefone'  => $this->faker->phoneNumber(12)
+            'telefone'  => "(99) 99999-9999"
         ];
     }
 }

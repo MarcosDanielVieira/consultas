@@ -23,10 +23,11 @@
                     Nome do médico
                     <span class="text-danger">*</span>
                 </label>
-                <select class="form-select" id="especialidade" name="medico_id" required>
+                <select class="form-select especialidade" id="especialidade" name="medico_id" required>
                     <option value="">Selecione</option>
                     @foreach ($medicos as $item)
-                        <option {{ isset($medico) && $medico->id == $item->id ? 'selected' : '' }}
+                        <option data-especialidade="{{ $item->especialidade->id }}"
+                            {{ isset($medico) && $medico->id == $item->id ? 'selected' : '' }}
                             value="{{ $item->id }}">
                             {{ $item->nome . ' - ' . $item->especialidade->nome }}
                         </option>

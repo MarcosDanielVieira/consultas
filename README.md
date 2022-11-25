@@ -29,3 +29,13 @@ Abra a linha de comando.
 
 # Criando dados fictícios
     -   php artisan db:seed --class=DatabaseSeeder 
+
+# Banco de dados
+ - configuração do banco
+    - DB_CONNECTION=mysql
+    - DB_HOST=127.0.0.1
+    - DB_PORT=3306
+    - DB_DATABASE=banco_laravel
+    - DB_USERNAME=root
+    - DB_PASSWORD=
+ - rodar banco_agendamento.sql
