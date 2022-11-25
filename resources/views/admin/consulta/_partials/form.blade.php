@@ -23,12 +23,11 @@
                     Nome do médico
                     <span class="text-danger">*</span>
                 </label>
-                <select class="form-select especialidade" id="especialidade" name="medico_id" required>
+                <select class="form-select especialidade" id="nome" name="medico_id" required>
                     <option value="">Selecione</option>
                     @foreach ($medicos as $item)
                         <option data-especialidade="{{ $item->especialidade->id }}"
-                            {{ isset($medico) && $medico->id == $item->id ? 'selected' : '' }}
-                            value="{{ $item->id }}">
+                            {{ $consulta->medico_id == $item->id ? 'selected' : '' }} value="{{ $item->id }}">
                             {{ $item->nome . ' - ' . $item->especialidade->nome }}
                         </option>
                     @endforeach
@@ -46,8 +45,7 @@
                 <select class="form-select" id="especialidade" name="paciente_id" required>
                     <option value="">Selecione</option>
                     @foreach ($pacientes as $item)
-                        <option {{ isset($paciente) && $paciente->id == $item->id ? 'selected' : '' }}
-                            value="{{ $item->id }}">
+                        <option {{ $consulta->paciente_id == $item->id ? 'selected' : '' }} value="{{ $item->id }}">
                             {{ $item->nome }}
                         </option>
                     @endforeach
@@ -62,8 +60,10 @@
                     Data do agendamento
                     <span class="text-danger">*</span>
                 </label>
-                <input type="date" min="<?= date('Y-m-d') ?>" max="<?= date('Y-m-d', strtotime('+10 year')) ?>"
-                    class="form-control" required name="data_agendamento" id="data_agendamento">
+                <input type="date" min="<?= date('Y-m-d') ?>"
+                    value="{{ $consulta->data_agendamento ?? old('data_agendamento') }}"
+                    max="<?= date('Y-m-d', strtotime('+10 year')) ?>" class="form-control" required
+                    name="data_agendamento" id="data_agendamento">
                 <div class="invalid-feedback">
                     Campo não pode ficar sem selecionar!
                 </div>
@@ -74,7 +74,9 @@
                     Hora do agendamento
                     <span class="text-danger">*</span>
                 </label>
-                <input type="time" class="form-control" required name="hora_agendamento" id="hora_agendamento">
+                <input type="time" class="form-control"
+                    value="{{ $consulta->hora_agendamento ?? old('hora_agendamento') }}" required
+                    name="hora_agendamento" id="hora_agendamento">
                 <div class="invalid-feedback">
                     Campo não pode ficar sem selecionar!
                 </div>

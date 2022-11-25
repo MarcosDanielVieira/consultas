@@ -4,13 +4,12 @@
 @section('content')
 
     <div class="w-100 p-12 bg-white mx-auto">
-        <form action="{{ route('medico.update', $medico->id) }}" method="post">
+        <form action="{{ route('consulta.update', $consulta->id) }}" method="post">
 
             @method('put')
 
-            @include('admin.medico._partials.form', [
+            @include('admin.consulta._partials.form', [
                 'titulo_card' => 'Editar informações da consulta ',
-                'crm' => 'disabled',
             ])
 
         </form>

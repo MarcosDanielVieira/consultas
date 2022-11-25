@@ -46,6 +46,8 @@ Route::middleware(["auth"])->group(function () {
     Route::get("/consulta/index", [ConsultaController::class, 'index'])->name("consulta.index");
     Route::get("/consulta/create", [ConsultaController::class, 'create'])->name("consulta.create");
     Route::post("/consulta/store", [ConsultaController::class, 'store'])->name("consulta.store");
+    Route::get("/consulta/edit/{id}", [ConsultaController::class, 'edit'])->name("consulta.edit");
+    Route::put("/consulta/{id}", [ConsultaController::class, 'update'])->name("consulta.update");
 });
 
 Route::get('/', function () {

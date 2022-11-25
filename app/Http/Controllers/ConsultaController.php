@@ -59,7 +59,10 @@ class ConsultaController extends Controller
             return redirect()->back();
         }
 
-        return view("admin.consulta.edit", compact("consulta"));
+        $medicos    = Medico::orderBy("nome", "ASC")->get();
+        $pacientes  = Paciente::orderBy("nome", "ASC")->get();
+
+        return view("admin.consulta.edit", compact("consulta", "medicos", "pacientes"));
     }
 
     /**

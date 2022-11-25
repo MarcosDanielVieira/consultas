@@ -52,7 +52,7 @@
                             </td>
 
                             <td class="text-center">
-                                <a class="btn btn-outline-success" href="{{ route('medico.edit', $item->id) }}">Editar</a>
+                                <a class="btn btn-outline-success" href="{{ route('consulta.edit', $item->id) }}">Editar</a>
                             </td>
                         </tr>
                     @endforeach
